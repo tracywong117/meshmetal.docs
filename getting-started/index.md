@@ -10,8 +10,6 @@ The fastest way to test the complete pipeline (downloading, encoding, combining,
 - **Target Audience**: New users, testing, reproduction of demo workflows.
 - 👉 **[Read the Docker Guided Setup Guide](./docker.md)**
 
----
-
 ## Option 2: Manual Installation (Bare-Metal / HPC)
 
 For large-scale production deployments on High-Performance Computing (HPC) clusters or dedicated server nodes.

@@ -8,26 +8,26 @@ When adding a new batch of SRA samples (Batch 2) to an existing indexed database
 
 ```mermaid
 flowchart TD
-    subgraph Existing ["Existing Database (Batch 1)"]
-        E1["combined_v1.bin<br/>dataset_v1.faiss<br/>dataset_v1.brwt"]
+    subgraph Existing ["<div>Existing Database (Batch 1)</div>"]
+        E1["<div>combined_v1.bin<br/>dataset_v1.faiss<br/>dataset_v1.brwt</div>"]
     end
 
-    subgraph New ["New Dataset (Batch 2)"]
-        N1["embeddings_v2/*.bin"] --> N2["parallel_combine_sets_128"]
-        N2 --> N3["combined_v2_raw.bin"]
+    subgraph New ["<div>New Dataset (Batch 2)</div>"]
+        N1["<div>embeddings_v2/*.bin</div>"] --> N2["<div>parallel_combine_sets_128</div>"]
+        N2 --> N3["<div>combined_v2_raw.bin</div>"]
     end
 
-    E1 --> APP["append_set_128.bin"]
+    E1 --> APP["<div>append_set_128.bin</div>"]
     N3 --> APP
-    APP --> UNI["combined_v2_unique.bin<br/><i>(New Hash Universe)</i>"]
+    APP --> UNI["<div>combined_v2_unique.bin<br/><i>(New Hash Universe)</i></div>"]
 
-    UNI --> F_UPD["index_mmap.bin update"]
-    F_UPD --> F_V2["dataset_v2.faiss"]
+    UNI --> F_UPD["<div>index_mmap.bin update</div>"]
+    F_UPD --> F_V2["<div>dataset_v2.faiss</div>"]
 
-    UNI --> A_UPD["update_annotations.bin"]
-    A_UPD --> A_REM["annotations_remapped/*.bin"]
-    A_REM --> BRWT_UPD["construct_BRWT concat/update"]
-    BRWT_UPD --> B_V2["dataset_v2.brwt"]
+    UNI --> A_UPD["<div>update_annotations.bin</div>"]
+    A_UPD --> A_REM["<div>annotations_remapped/*.bin</div>"]
+    A_REM --> BRWT_UPD["<div>construct_BRWT concat/update</div>"]
+    BRWT_UPD --> B_V2["<div>dataset_v2.brwt</div>"]
 ```
 
 ## Step-by-Step Procedure

@@ -22,7 +22,7 @@ docker build -t dml-seq-search:latest --build-arg CUDA_VERSION=cu126 -f demo/Doc
 
 Before running the container or the scripts, configure the path to your repository.
 
-Replace `<your_path>` with the absolute directory path to where the `dml-seq-search` repository is stored on your machine (e.g., `/media/backup/tracy` or `/home/user/projects`) in the following files:
+Replace `<your_path>` with the absolute directory path to where the `dml-seq-search` repository is stored on your machine in the following files:
 
 * **`demo/pipeline_from_scratch.sh`** (Line 5: `base_path="<your_path>/dml-seq-search"`)
 * **`demo/start_servers.sh`** (Line 3: `base_path="<your_path>/dml-seq-search"`)
