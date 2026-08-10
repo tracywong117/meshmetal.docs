@@ -3,6 +3,7 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 
 export default withMermaid(
   defineConfig({
+    base: '/meshmetal.docs/',
     title: "Meshmetal Docs",
     description: "Deep Metric Learning for Petabase-Scale Sequence Similarity Search",
     mermaid: {
