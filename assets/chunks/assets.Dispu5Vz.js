@@ -1,0 +1,1 @@
+var e=`/meshmetal.docs/logo.png`;export{e as t};
