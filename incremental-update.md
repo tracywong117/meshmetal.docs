@@ -17,14 +17,14 @@ flowchart TD
         N2 --> N3["<div>combined_v2_raw.bin</div>"]
     end
 
-    E1 --> APP["<div>append_set_128.bin</div>"]
+    E1 --> APP["<div>append_set_128</div>"]
     N3 --> APP
     APP --> UNI["<div>combined_v2_unique.bin<br/><i>(New Hash Universe)</i></div>"]
 
-    UNI --> F_UPD["<div>index_mmap.bin update</div>"]
+    UNI --> F_UPD["<div>index_mmap update</div>"]
     F_UPD --> F_V2["<div>dataset_v2.faiss</div>"]
 
-    UNI --> A_UPD["<div>update_annotations.bin</div>"]
+    UNI --> A_UPD["<div>update_annotations</div>"]
     A_UPD --> A_REM["<div>annotations_remapped/*.bin</div>"]
     A_REM --> BRWT_UPD["<div>construct_BRWT concat/update</div>"]
     BRWT_UPD --> B_V2["<div>dataset_v2.brwt</div>"]
@@ -39,7 +39,7 @@ Run `parallel_combine_sets_128_v2_log_lowmem` on the new sample embedding files 
 Merge the existing universe (`combined_v1.bin`) and new batch universe (`combined_v2_raw.bin`) into a new deduplicated universe (`combined_v2_unique.bin`):
 
 ```bash
-append_set_128.bin \
+append_set_128 \
     combined_v1.bin \
     combined_v2_raw.bin \
     combined_v2_unique.bin
@@ -49,7 +49,7 @@ append_set_128.bin \
 Append the new unique hashes to the existing FAISS index:
 
 ```bash
-index_mmap.bin update \
+index_mmap update \
     dataset_v1.faiss \
     new_hashes_only.bin \
     0 \
@@ -57,9 +57,9 @@ index_mmap.bin update \
 ```
 
 ### Step 4: Remap Annotations & Merge BRWT Trees
-1. Use `update_annotations.bin` to remap existing `sd_vector` annotation files from the old universe index space to the new universe index space:
+1. Use `update_annotations` to remap existing `sd_vector` annotation files from the old universe index space to the new universe index space:
    ```bash
-   update_annotations.bin \
+   update_annotations \
        embedding_file_list.txt \
        combined_v1.bin \
        combined_v2_unique.bin \

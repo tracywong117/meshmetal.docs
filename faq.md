@@ -22,7 +22,7 @@
 ---
 
 ### Q: Do I need Python `faiss` installed to run query servers?
-**A**: No. Meshmetal uses a standalone C++ binary index (`index_mmap.bin`) and HTTP REST server (`faiss_server.bin`). The Python client `faiss_client.py` communicates with `faiss_server.bin` over HTTP REST using standard `requests`.
+**A**: No. Meshmetal uses a standalone C++ binary index (`index_mmap`) and HTTP REST server (`faiss_server`). The Python client `faiss_client.py` communicates with `faiss_server` over HTTP REST using standard `requests`.
 
 ---
 

@@ -22,7 +22,7 @@ Offset       Size             Field
 +768 KB      variable         bucket data (IDs + 16-byte codes)
 ```
 
-## REST API Server Endpoints (`faiss_server.bin`)
+## REST API Server Endpoints (`faiss_server`)
 
 ### `GET /health`
 Returns status, mode (`ram` vs `mmap`), and record count.

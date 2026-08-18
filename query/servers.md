@@ -14,10 +14,10 @@ We provide a helper script `demo/start_servers.sh` that starts both the FAISS se
 
 ## Manual Server Execution
 
-### 1. FAISS Server (`faiss_server.bin`)
+### 1. FAISS Server (`faiss_server`)
 
 ```bash
-faiss_server.bin <mode: ram|mmap> <index.faiss> [port]
+faiss_server <mode: ram|mmap> <index.faiss> [port]
 ```
 
 - **`mode`**: `ram` (loads entire index into memory) or `mmap` (memory-maps disk file).
@@ -26,7 +26,7 @@ faiss_server.bin <mode: ram|mmap> <index.faiss> [port]
 
 ```bash
 # Example: start in ram mode on port 8002
-faiss_server.bin ram dataset.faiss 8002
+faiss_server ram dataset.faiss 8002
 ```
 
 #### Health Check

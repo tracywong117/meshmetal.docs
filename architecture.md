@@ -9,7 +9,7 @@ flowchart TD
     S1["<div>1. Download SRA Contigs/Unitigs (.zst) from S3</div>"] --> S2["<div>2. Encode Sequences to 128-bit Binary Hash Codes<br/></div>"]
     S2 --> S3["<div>3. Deduplicate & Combine Hash Universe<br/><i>(parallel_combine_sets_128_v2_log_lowmem)</i></div>"]
     S3 --> S4["<div>4. Generate Annotations<br/><i>(sd_vector)</i></div>"]
-    S3 --> S6["<div>6. FAISS Binary Index<br/><i>(index_mmap.bin)</i></div>"]
+    S3 --> S6["<div>6. FAISS Binary Index<br/><i>(index_mmap)</i></div>"]
     S4 --> S5["<div>5. Build BRWT Matrix<br/><i>(construct_BRWT)</i></div>"]
     S5 --> S7["<div>7. Query Engine (query_seq.py / REST APIs)<br/>Stage 1: FAISS Hamming Search<br/>Stage 2: BRWT Accession Annotation Retrieval</div>"]
     S6 --> S7

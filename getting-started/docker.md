@@ -18,25 +18,27 @@ By default, the build installs CPU PyTorch. If you want to enable GPU/CUDA suppo
 docker build -t dml-seq-search:latest --build-arg CUDA_VERSION=cu126 -f demo/Dockerfile .
 ```
 
-## Step 2: Configure the Base Path
+## Step 2: Open the Repository Folder
 
-Before running the container or the scripts, configure the path to your repository.
+Go to the directory that contains your local clone of `dml-seq-search`:
 
-Replace `<your_path>` with the absolute directory path to where the `dml-seq-search` repository is stored on your machine in the following files:
+```bash
+cd /path/to/dml-seq-search
+```
 
-* **`demo/pipeline_from_scratch.sh`** (Line 5: `base_path="<your_path>/dml-seq-search"`)
-* **`demo/start_servers.sh`** (Line 3: `base_path="<your_path>/dml-seq-search"`)
-* **`demo/query.sh`** (Line 3: `base_path="<your_path>/dml-seq-search"`)
+This is the repository root. Run the remaining commands from this folder.
 
 ## Step 3: Start the Docker Container
 
-Start the container in interactive mode with the container name `seq_search`. Replace `<your_path>` with your repository's parent directory:
+Start the container in interactive mode with the container name `seq_search`. The repository root is taken from your current shell location:
 
 ```bash
+repo_root=$(pwd)
+
 docker run -it --rm \
   --name seq_search \
-  -v <your_path>/dml-seq-search:<your_path>/dml-seq-search \
-  -w <your_path>/dml-seq-search \
+  -v "$repo_root:$repo_root" \
+  -w "$repo_root" \
   dml-seq-search:latest
 ```
 

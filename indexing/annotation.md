@@ -1,13 +1,13 @@
 # Step 4: Matrix Annotation Vectors
 
-Once the deduplicated hash universe (`combined.bin`) is created, we build one sparse bit vector (`sd_vector`) for each sample using `parallel_sd_vector_annotation_128.bin`.
+Once the deduplicated hash universe (`combined.bin`) is created, we build one sparse bit vector (`sd_vector`) for each sample using `parallel_sd_vector_annotation_128`.
 
 Each bit in a sample's `sd_vector` indicates whether the $i$-th hash of the global universe appears in that sample.
 
 ## Usage
 
 ```bash
-parallel_sd_vector_annotation_128.bin \
+parallel_sd_vector_annotation_128 \
     <embedding_file_list.txt> \
     <combined.bin> \
     <embedding_dir> \

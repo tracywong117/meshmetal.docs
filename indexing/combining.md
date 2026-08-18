@@ -10,7 +10,7 @@ Two C++ tools are provided in `build_index/`:
 ## Low-Memory Combination (Recommended for Large Datasets)
 
 ```bash
-parallel_combine_sets_128_v2_log_lowmem.bin \
+parallel_combine_sets_128_v2_log_lowmem \
     <embedding_file_list.txt> \
     <embedding_dir> \
     <output_combined.bin> \
@@ -31,7 +31,7 @@ parallel_combine_sets_128_v2_log_lowmem.bin \
 ## In-RAM Combination (For Small Datasets / Demos)
 
 ```bash
-parallel_combine_sets_128_v2_log.bin \
+parallel_combine_sets_128_v2_log \
     <embedding_file_list.txt> \
     <embedding_dir> \
     <output_combined.bin>

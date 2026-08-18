@@ -82,29 +82,14 @@ sudo ldconfig
 ### C. Standalone FAISS & HTTP Server
 ```bash
 cd standalone_faiss
-g++ -O3 -march=native -fopenmp index_binary_hash_mmap.cpp -o index_mmap.bin
-g++ -O3 -march=native -fopenmp faiss_server.cpp -o faiss_server.bin -lpthread
-sudo cp index_mmap.bin faiss_server.bin /usr/local/bin/
+g++ -O3 -march=native -fopenmp index_binary_hash_mmap.cpp -o index_mmap
+g++ -O3 -march=native -fopenmp faiss_server.cpp -o faiss_server -lpthread
+sudo cp index_mmap faiss_server /usr/local/bin/
 ```
 
 ### D. Standalone Index Tools (`build_index`)
 ```bash
 cd build_index
-g++ -std=c++17 -O3 -DNDEBUG check_sd_vector_stats.cpp -o check_sd_vector_stats.bin -lsdsl -ldivsufsort -ldivsufsort64
-g++ -std=c++17 -O3 -DNDEBUG load_one_sd_column.cpp -o load_one_sd_column.bin -lsdsl -ldivsufsort -ldivsufsort64
-g++ -std=c++17 -O3 -DNDEBUG load_sd_column_query_rows.cpp -o load_sd_column_query_rows.bin -lsdsl -ldivsufsort -ldivsufsort64 -lpthread
-g++ -std=c++17 -O3 -DNDEBUG parallel_sd_vector_annotation_128.cpp -o parallel_sd_vector_annotation_128.bin -lsdsl -ldivsufsort -ldivsufsort64 -lpthread
-g++ -std=c++17 -O3 -DNDEBUG parallel_sd_vector_annotation_128_shadow_indexing.cpp -o parallel_sd_vector_annotation_128_shadow_indexing.bin -lsdsl -ldivsufsort -ldivsufsort64 -lpthread
-g++ -std=c++17 -O3 -DNDEBUG check_annotation_vectors.cpp -o check_annotation_vectors.bin -lsdsl -ldivsufsort -ldivsufsort64 -lpthread
-g++ -std=c++17 -O3 -DNDEBUG update_annotations.cpp -o update_annotations.bin -lsdsl -ldivsufsort -ldivsufsort64 -lpthread
-g++ -std=c++17 -O3 -DNDEBUG spot_check_mapping.cpp -o spot_check_mapping.bin -lsdsl -ldivsufsort -ldivsufsort64
-g++ -std=c++17 -O3 -DNDEBUG verify_mapping.cpp -o verify_mapping.bin -lsdsl -ldivsufsort -ldivsufsort64
-g++ -std=c++17 -O3 -DNDEBUG verify_annotation.cpp -o verify_annotation.bin -lsdsl -ldivsufsort -ldivsufsort64
-g++ -std=c++17 -O3 -DNDEBUG reverse_sd_vector_annotation_128.cpp -o reverse_sd_vector_annotation_128.bin -lsdsl -ldivsufsort -ldivsufsort64 -lpthread
-g++ -std=c++17 -O3 -DNDEBUG compare_sd_columns.cpp -o compare_sd_columns.bin -lsdsl -ldivsufsort -ldivsufsort64
-g++ -std=c++17 -O3 append_set_128.cpp -o append_set_128.bin
-g++ -std=c++17 -O3 compare_embeddings_file.cpp -o compare_embeddings_file.bin
-g++ -std=c++17 -O3 -DNDEBUG -fopenmp parallel_combine_sets_128_v2_log.cpp -o parallel_combine_sets_128_v2_log.bin
-g++ -std=c++17 -O3 -DNDEBUG -fopenmp parallel_combine_sets_128_v2_log_lowmem.cpp -o parallel_combine_sets_128_v2_log_lowmem.bin
-sudo cp *.bin /usr/local/bin/
+make
+sudo make install # optional
 ```

@@ -14,7 +14,7 @@ flowchart TD
 ## Key Query Modes
 
 1. **Persistent Server Mode (Recommended)**:
-   - Hosts `faiss_server.bin` on a user-specified port (loads or mmaps index once).
+   - Hosts `faiss_server` on a user-specified port (loads or mmaps index once).
    - Hosts `construct_BRWT server` on a user-specified port.
    - `query_seq.py` queries servers over HTTP REST APIs.
 2. **Local Direct Mode**:

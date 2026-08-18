@@ -1,13 +1,13 @@
 # Step 6: Standalone FAISS Indexing
 
-The unique 128-bit hash universe (`combined.bin`) is indexed into a custom standalone FAISS `IndexBinaryHash` structure using `index_mmap.bin`.
+The unique 128-bit hash universe (`combined.bin`) is indexed into a custom standalone FAISS `IndexBinaryHash` structure using `index_mmap`.
 
 ## Building the Index
 
 For large datasets, use `build_low_mem` (two-pass disk spill build):
 
 ```bash
-index_mmap.bin build_low_mem \
+index_mmap build_low_mem \
     <combined.bin> \
     <output.faiss> \
     [tmp_folder] \
@@ -26,7 +26,7 @@ index_mmap.bin build_low_mem \
 ### Full-RAM Build (For Small Datasets)
 
 ```bash
-index_mmap.bin build <combined.bin> <output.faiss>
+index_mmap build <combined.bin> <output.faiss>
 ```
 
 ## How `IndexBinaryHash` Works
