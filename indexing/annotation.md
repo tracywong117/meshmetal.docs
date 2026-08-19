@@ -29,6 +29,5 @@ parallel_sd_vector_annotation_128 \
 
 Outputs SDSL `sd_vector` files named `<output_annotation_dir>/<prefix><sample_name>.bin`.
 
-## C++ Compilation & ABI Compatibility Note
-
-> **CRITICAL**: The succinct vector builder method `sd_vector_builder::set` is defined inline in `sdsl-lite`. To prevent C++ ABI layout mismatches (which cause segmentation faults), always compile `parallel_sd_vector_annotation_128.cpp` against the same SDSL-lite headers and library installed from `BRWT/construct_BRWT/external-libraries/sdsl-lite`.
+> [!IMPORTANT]
+> Always compile `parallel_sd_vector_annotation_128` against the same `sdsl-lite` headers and library installed from `BRWT/construct_BRWT/external-libraries/sdsl-lite`.
